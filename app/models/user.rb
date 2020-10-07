@@ -44,9 +44,9 @@ class User < ApplicationRecord
     favorite.destroy if favorite
   end
   
-  def favorite?(other_micropost)
-    self.favorite_microposts.include?(other_micropost)
-  end
+def favorite?(other_micropost)
+  self.favorites.exists?(micropost_id: other_micropost.id)
+end
   
   
   
